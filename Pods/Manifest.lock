@@ -1,0 +1,18 @@
+PODS:
+  - HXPhotoPicker (3.3.2):
+    - HXPhotoPicker/Default (= 3.3.2)
+  - HXPhotoPicker/Default (3.3.2)
+
+DEPENDENCIES:
+  - HXPhotoPicker
+
+SPEC REPOS:
+  trunk:
+    - HXPhotoPicker
+
+SPEC CHECKSUMS:
+  HXPhotoPicker: 3d0526bc46cd2a4510a777d5f57dfad8e683fcfd
+
+PODFILE CHECKSUM: 764a651c3d2e53d4a5b4df213c3a9430e3656f50
+
+COCOAPODS: 1.11.3
