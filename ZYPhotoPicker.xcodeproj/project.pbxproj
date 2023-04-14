@@ -7,13 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A14CD1F29E7E0A90011FA2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A14CD1E29E7E0A90011FA2E /* AppDelegate.m */; };
-		2A14CD2229E7E0A90011FA2E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A14CD2129E7E0A90011FA2E /* SceneDelegate.m */; };
-		2A14CD2529E7E0A90011FA2E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A14CD2429E7E0A90011FA2E /* ViewController.m */; };
-		2A14CD2829E7E0A90011FA2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A14CD2629E7E0A90011FA2E /* Main.storyboard */; };
-		2A14CD2A29E7E0AB0011FA2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A14CD2929E7E0AB0011FA2E /* Assets.xcassets */; };
-		2A14CD2D29E7E0AB0011FA2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A14CD2B29E7E0AB0011FA2E /* LaunchScreen.storyboard */; };
-		2A14CD3029E7E0AB0011FA2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A14CD2F29E7E0AB0011FA2E /* main.m */; };
 		2A14CD3429E7E0D10011FA2E /* ZYPhotoPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6970F829E7BA0F00907A80 /* ZYPhotoPicker.framework */; };
 		2A14CD3629E7E4D60011FA2E /* ZYPhotoPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6970F829E7BA0F00907A80 /* ZYPhotoPicker.framework */; };
 		2A14CD3729E7E4D60011FA2E /* ZYPhotoPicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6970F829E7BA0F00907A80 /* ZYPhotoPicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -50,17 +43,6 @@
 /* Begin PBXFileReference section */
 		0785E4EFE2FBB710214FADD1 /* Pods-ZYPhotoPicker Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYPhotoPicker Example.debug.xcconfig"; path = "Target Support Files/Pods-ZYPhotoPicker Example/Pods-ZYPhotoPicker Example.debug.xcconfig"; sourceTree = "<group>"; };
 		2A14CD1B29E7E0A90011FA2E /* sss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sss.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A14CD1D29E7E0A90011FA2E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		2A14CD1E29E7E0A90011FA2E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2A14CD2029E7E0A90011FA2E /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		2A14CD2129E7E0A90011FA2E /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		2A14CD2329E7E0A90011FA2E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2A14CD2429E7E0A90011FA2E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2A14CD2729E7E0A90011FA2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2A14CD2929E7E0AB0011FA2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2A14CD2C29E7E0AB0011FA2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2A14CD2E29E7E0AB0011FA2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A14CD2F29E7E0AB0011FA2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A6970F829E7BA0F00907A80 /* ZYPhotoPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZYPhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A6970FB29E7BA0F00907A80 /* ZYPhotoPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYPhotoPicker.h; sourceTree = "<group>"; };
 		2A69710629E7BADD00907A80 /* ZYPhotoPicker Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZYPhotoPicker Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,24 +97,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A14CD1C29E7E0A90011FA2E /* sss */ = {
-			isa = PBXGroup;
-			children = (
-				2A14CD1D29E7E0A90011FA2E /* AppDelegate.h */,
-				2A14CD1E29E7E0A90011FA2E /* AppDelegate.m */,
-				2A14CD2029E7E0A90011FA2E /* SceneDelegate.h */,
-				2A14CD2129E7E0A90011FA2E /* SceneDelegate.m */,
-				2A14CD2329E7E0A90011FA2E /* ViewController.h */,
-				2A14CD2429E7E0A90011FA2E /* ViewController.m */,
-				2A14CD2629E7E0A90011FA2E /* Main.storyboard */,
-				2A14CD2929E7E0AB0011FA2E /* Assets.xcassets */,
-				2A14CD2B29E7E0AB0011FA2E /* LaunchScreen.storyboard */,
-				2A14CD2E29E7E0AB0011FA2E /* Info.plist */,
-				2A14CD2F29E7E0AB0011FA2E /* main.m */,
-			);
-			path = sss;
-			sourceTree = "<group>";
-		};
 		2A6970EE29E7BA0F00907A80 = {
 			isa = PBXGroup;
 			children = (
@@ -140,7 +104,6 @@
 				2AB0184829E9016100B98B4E /* ZYPhotoPicker.podspec */,
 				2A6970FA29E7BA0F00907A80 /* ZYPhotoPicker */,
 				2A69710729E7BADD00907A80 /* ZYPhotoPicker Example */,
-				2A14CD1C29E7E0A90011FA2E /* sss */,
 				2A6970F929E7BA0F00907A80 /* Products */,
 				EDBFB7FFA86967544C2C66DC /* Pods */,
 				5B84FF3648BAA303990FAFEA /* Frameworks */,
@@ -322,9 +285,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A14CD2D29E7E0AB0011FA2E /* LaunchScreen.storyboard in Resources */,
-				2A14CD2A29E7E0AB0011FA2E /* Assets.xcassets in Resources */,
-				2A14CD2829E7E0A90011FA2E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,10 +395,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A14CD2529E7E0A90011FA2E /* ViewController.m in Sources */,
-				2A14CD1F29E7E0A90011FA2E /* AppDelegate.m in Sources */,
-				2A14CD3029E7E0AB0011FA2E /* main.m in Sources */,
-				2A14CD2229E7E0A90011FA2E /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,22 +420,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2A14CD2629E7E0A90011FA2E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2A14CD2729E7E0A90011FA2E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2A14CD2B29E7E0AB0011FA2E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2A14CD2C29E7E0AB0011FA2E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		2A69711129E7BADD00907A80 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
