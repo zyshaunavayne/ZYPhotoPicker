@@ -5,9 +5,8 @@
 //  Created by 张宇 on 2023/4/13.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <HXPhotoPicker/HXPhotoView.h>
+#import <HXPhotoPicker.h>
 #import <CoreServices/CoreServices.h>
 
 NS_ASSUME_NONNULL_BEGIN
