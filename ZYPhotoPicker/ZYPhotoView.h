@@ -7,7 +7,6 @@
 
 #import <UIKit/UIKit.h>
 #import <HXPhotoPicker.h>
-#import <CoreServices/CoreServices.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

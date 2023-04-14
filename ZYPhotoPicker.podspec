@@ -11,9 +11,7 @@ Pod::Spec.new do |spec|
   spec.source = { git: "https://github.com/zyshaunavayne/ZYPhotoPicker.git", tag: "v#{spec.version}", submodules: true }
   spec.platform      = :ios,"11.0"
   spec.dependency    "HXPhotoPicker"
-  spec.dependency    "TZImagePickerController"
-  spec.dependency    "MJExtension"
-  spec.frameworks   = "Foundation","UIKit","CoreServices"
+  spec.frameworks   = "Foundation","UIKit"
   spec.source_files  = "ZYPhotoPicker/*.{h,m}"
 
 end
