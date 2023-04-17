@@ -193,7 +193,7 @@
 - (void)addWithFrame:(CGRect)frame
 {
     self.frame = frame;
-    _photoView.frame = CGRectMake(10, 10, frame.size.width - 20, frame.size.height - 20);
+    _photoView.frame = CGRectMake(10, 0, frame.size.width - 20, frame.size.height - 20);
 }
 
 - (void)setPhotoViewAllHeight:(CGFloat)photoViewAllHeight
