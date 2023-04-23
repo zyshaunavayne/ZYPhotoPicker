@@ -117,7 +117,7 @@
 {
     if (!_photoView) {
         _photoView = [HXPhotoView photoManager:self.manager];
-        _photoView.lineCount = 2;
+        _photoView.lineCount = 1;
         _photoView.delegate = self;
         _photoView.outerCamera = YES;
         _photoView.previewShowDeleteButton = YES;
@@ -204,8 +204,55 @@
 
 - (void)photoCompletionWithCompletion:(BOOL)completion
 {
-    if (self.photosCompletionBlock) {
-        self.photosCompletionBlock(_photoArray, completion);
+    if (completion) {
+        __weak typeof(self) weakSelf = self;
+        if (_photoArray.count != 0) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                /// 获取被压缩大小。
+                CGFloat ysSize = 400.;
+                if (weakSelf.imageQualityType == ZYPhotoViewImageQualityType0) {
+                    ysSize = 1.;
+                }
+                
+                if (weakSelf.imageQualityType == ZYPhotoViewImageQualityType200) {
+                    ysSize = 200. * 1024.;
+                }
+                
+                if (weakSelf.imageQualityType == ZYPhotoViewImageQualityType400) {
+                    ysSize = 400. * 1024.;
+                }
+                
+                if (weakSelf.imageQualityType == ZYPhotoViewImageQualityType800) {
+                    ysSize = 800. * 1024.;
+                }
+                
+                if (weakSelf.imageQualityType == ZYPhotoViewImageQualityType1600) {
+                    ysSize = 1600. * 1024.;
+                }
+                
+                /// 子线程中压缩图片
+                NSData *originData = UIImageJPEGRepresentation(weakSelf.photoArray.firstObject, 1.0);
+                CGFloat ysRate = 1.0; /// 压缩比例
+                if (originData.length > (ysSize / 2.)) { /// 控制位xK左右
+                    ysRate = originData.length / ysSize;
+                }
+                NSData *imageData = UIImageJPEGRepresentation(weakSelf.photoArray.firstObject, 1 / ysRate);
+                UIImage *compressedImage = [UIImage imageWithData:imageData];
+                [weakSelf.photoArray removeAllObjects];
+                [weakSelf.photoArray addObject:compressedImage];
+                dispatch_async(dispatch_get_main_queue(), ^{ /// 压缩成功回到主线程中开始上传
+                    weakSelf.photosCompletionBlock(weakSelf.photoArray, completion);
+                });
+            });
+        } else {
+            if (self.photosCompletionBlock) {
+                self.photosCompletionBlock(_photoArray, completion);
+            }
+        }
+    } else {
+        if (self.photosCompletionBlock) {
+            self.photosCompletionBlock(_photoArray, completion);
+        }
     }
 }
 
