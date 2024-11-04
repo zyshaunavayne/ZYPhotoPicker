@@ -1,17 +1,17 @@
 //
-//  ZYPhotoView.m
+//  ZYVideoView.m
 //  ZYPhotoPicker
 //
-//  Created by 张宇 on 2023/4/13.
+//  Created by 张宇 on 2024/11/4.
 //
 
-#import "ZYPhotoView.h"
+#import "ZYVideoView.h"
 
-@interface ZYPhotoView () <HXPhotoViewDelegate,UIImagePickerControllerDelegate>
-@property (nonatomic, strong) NSMutableArray *photoArray;
+@interface ZYVideoView () <HXPhotoViewDelegate,UIImagePickerControllerDelegate>
+@property (nonatomic, strong) NSMutableArray *videoArray;
 @end
 
-@implementation ZYPhotoView
+@implementation ZYVideoView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -26,11 +26,10 @@
 - (HXPhotoManager *)manager
 {
     if (!_manager) {
-        _manager = [HXPhotoManager.alloc initWithType:HXPhotoManagerSelectedTypePhoto];
+        _manager = [HXPhotoManager.alloc initWithType:HXPhotoManagerSelectedTypeVideo];
         _manager.configuration.saveSystemAblum = YES;
         _manager.configuration.openCamera = YES;
-        _manager.configuration.lookGifPhoto = NO;
-        _manager.configuration.photoMaxNum = 0;
+        _manager.configuration.videoMaxNum = 9;
         _manager.configuration.maxNum = 0;
         _manager.configuration.requestImageAfterFinishingSelection = YES;
         _manager.configuration.rowCount = 4;
@@ -80,7 +79,7 @@
         if (self.manager.configuration.saveSystemAblum) {
             [HXPhotoTools savePhotoToCustomAlbumWithName:self.manager.configuration.customAlbumName photo:model.thumbPhoto];
         }
-    }else  if ([mediaType isEqualToString:(NSString *)kUTTypeMovie]) {
+    }else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie]) {
         NSURL *url = info[UIImagePickerControllerMediaURL];
         NSDictionary *opts = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO]
                                                          forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
@@ -129,45 +128,50 @@
 - (void)photoListViewControllerDidDone:(HXPhotoView *)photoView allList:(NSArray<HXPhotoModel *> *)allList photos:(NSArray<HXPhotoModel *> *)photos videos:(NSArray<HXPhotoModel *> *)videos original:(BOOL)isOriginal
 {
     
-    _photoArray = NSMutableArray.alloc.init;
+    _videoArray = NSMutableArray.alloc.init;
     
     __weak typeof(self) weakSelf = self;
     
     ///  返回回调加载状态
-    [self photoCompletionWithCompletion:NO];
+    [self videoCompletionWithCompletion:NO];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        /// 图片获取
-        if (photos.count == 0) {
+        /// 视频获取
+        if (videos.count == 0) {
             weakSelf.userInteractionEnabled = YES;
             dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf photoCompletionWithCompletion:YES];
+                [weakSelf videoCompletionWithCompletion:YES];
             });
         } else {
             weakSelf.userInteractionEnabled = NO;
-            for (HXPhotoModel *model in photos) {
-                [model requestPreviewImageWithSize:PHImageManagerMaximumSize startRequestICloud:^(PHImageRequestID iCloudRequestId, HXPhotoModel *model) {
-                } progressHandler:^(double progress, HXPhotoModel *model) {
-                } success:^(UIImage *image, HXPhotoModel *model, NSDictionary *info) {
-                    if (image) {
-                        [weakSelf.photoArray addObject:image];
-                    }else{
-                        [weakSelf.photoArray addObject:@"1"];
+            for (HXPhotoModel *model in videos) {
+                [model exportVideoWithPresetName:AVAssetExportPresetMediumQuality startRequestICloud:^(PHImageRequestID iCloudRequestId, HXPhotoModel * _Nullable model) {
+                    
+                } iCloudProgressHandler:^(double progress, HXPhotoModel * _Nullable model) {
+                    
+                } exportProgressHandler:^(float progress, HXPhotoModel * _Nullable model) {
+                    
+                } success:^(NSURL * _Nullable videoURL, HXPhotoModel * _Nullable model) {
+                    if (videoURL.path) {
+                        [weakSelf.videoArray addObject:videoURL.path];
+                    } else {
+                        [weakSelf.videoArray addObject:@"1"];
                     }
-                    if (weakSelf.photoArray.count == photos.count) {
+                    
+                    if (weakSelf.videoArray.count == videos.count) {
                         weakSelf.userInteractionEnabled = YES;
-                        [weakSelf.photoArray removeObject:@"1"];
+                        [weakSelf.videoArray removeObject:@"1"];
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            [weakSelf photoCompletionWithCompletion:YES];
+                            [weakSelf videoCompletionWithCompletion:YES];
                         });
                     }
-                } failed:^(NSDictionary *info, HXPhotoModel *model) {
-                    [weakSelf.photoArray addObject:@"1"];
-                    if (weakSelf.photoArray.count == photos.count) {
+                } failed:^(NSDictionary * _Nullable info, HXPhotoModel * _Nullable model) {
+                    [weakSelf.videoArray addObject:@"1"];
+                    if (weakSelf.videoArray.count == videos.count) {
                         weakSelf.userInteractionEnabled = YES;
-                        [weakSelf.photoArray removeObject:@"1"];
+                        [weakSelf.videoArray removeObject:@"1"];
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            [weakSelf photoCompletionWithCompletion:YES];
+                            [weakSelf videoCompletionWithCompletion:YES];
                         });
                     }
                 }];
@@ -189,57 +193,10 @@
     [self photoViewHeight:_photoView];
 }
 
-- (void)photoCompletionWithCompletion:(BOOL)completion
+- (void)videoCompletionWithCompletion:(BOOL)completion
 {
-    if (completion) {
-        __weak typeof(self) weakSelf = self;
-        if (_photoArray.count != 0) {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                /// 获取被压缩大小。
-                CGFloat ysSize = 400.;
-                if (weakSelf.imageQualityType == ZYPhotoViewImageQualityType0) {
-                    ysSize = 1.;
-                }
-                
-                if (weakSelf.imageQualityType == ZYPhotoViewImageQualityType200) {
-                    ysSize = 200. * 1024.;
-                }
-                
-                if (weakSelf.imageQualityType == ZYPhotoViewImageQualityType400) {
-                    ysSize = 400. * 1024.;
-                }
-                
-                if (weakSelf.imageQualityType == ZYPhotoViewImageQualityType800) {
-                    ysSize = 800. * 1024.;
-                }
-                
-                if (weakSelf.imageQualityType == ZYPhotoViewImageQualityType1600) {
-                    ysSize = 1600. * 1024.;
-                }
-                
-                /// 子线程中压缩图片
-                NSData *originData = UIImageJPEGRepresentation(weakSelf.photoArray.firstObject, 1.0);
-                CGFloat ysRate = 1.0; /// 压缩比例
-                if (originData.length > (ysSize / 2.)) { /// 控制位xK左右
-                    ysRate = originData.length / ysSize;
-                }
-                NSData *imageData = UIImageJPEGRepresentation(weakSelf.photoArray.firstObject, 1 / ysRate);
-                UIImage *compressedImage = [UIImage imageWithData:imageData];
-                [weakSelf.photoArray removeAllObjects];
-                [weakSelf.photoArray addObject:compressedImage];
-                dispatch_async(dispatch_get_main_queue(), ^{ /// 压缩成功回到主线程中开始上传
-                    weakSelf.photosCompletionBlock(weakSelf.photoArray, completion);
-                });
-            });
-        } else {
-            if (self.photosCompletionBlock) {
-                self.photosCompletionBlock(_photoArray, completion);
-            }
-        }
-    } else {
-        if (self.photosCompletionBlock) {
-            self.photosCompletionBlock(_photoArray, completion);
-        }
+    if (self.videosCompletionBlock) {
+        self.videosCompletionBlock(_videoArray, completion);
     }
 }
 

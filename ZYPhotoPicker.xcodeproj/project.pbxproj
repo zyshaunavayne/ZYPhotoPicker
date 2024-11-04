@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A12356B2CD86F5D000E3365 /* ZYVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A12356A2CD86F5D000E3365 /* ZYVideoView.m */; };
+		2A12356C2CD86F5D000E3365 /* ZYVideoView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A1235692CD86F5D000E3365 /* ZYVideoView.h */; };
 		2A14CD3629E7E4D60011FA2E /* ZYPhotoPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6970F829E7BA0F00907A80 /* ZYPhotoPicker.framework */; };
 		2A14CD3729E7E4D60011FA2E /* ZYPhotoPicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6970F829E7BA0F00907A80 /* ZYPhotoPicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A6970FC29E7BA0F00907A80 /* ZYPhotoPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6970FB29E7BA0F00907A80 /* ZYPhotoPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		0785E4EFE2FBB710214FADD1 /* Pods-ZYPhotoPicker Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYPhotoPicker Example.debug.xcconfig"; path = "Target Support Files/Pods-ZYPhotoPicker Example/Pods-ZYPhotoPicker Example.debug.xcconfig"; sourceTree = "<group>"; };
+		2A1235692CD86F5D000E3365 /* ZYVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYVideoView.h; sourceTree = "<group>"; };
+		2A12356A2CD86F5D000E3365 /* ZYVideoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYVideoView.m; sourceTree = "<group>"; };
 		2A6970F829E7BA0F00907A80 /* ZYPhotoPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZYPhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A6970FB29E7BA0F00907A80 /* ZYPhotoPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYPhotoPicker.h; sourceTree = "<group>"; };
 		2A69710629E7BADD00907A80 /* ZYPhotoPicker Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZYPhotoPicker Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +119,8 @@
 				2A6970FB29E7BA0F00907A80 /* ZYPhotoPicker.h */,
 				2A69712029E7BBC600907A80 /* ZYPhotoView.h */,
 				2A69712129E7BBC600907A80 /* ZYPhotoView.m */,
+				2A1235692CD86F5D000E3365 /* ZYVideoView.h */,
+				2A12356A2CD86F5D000E3365 /* ZYVideoView.m */,
 			);
 			path = ZYPhotoPicker;
 			sourceTree = "<group>";
@@ -164,6 +170,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A12356C2CD86F5D000E3365 /* ZYVideoView.h in Headers */,
 				2A6970FC29E7BA0F00907A80 /* ZYPhotoPicker.h in Headers */,
 				2A69712229E7BBC600907A80 /* ZYPhotoView.h in Headers */,
 			);
@@ -357,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A69712329E7BBC600907A80 /* ZYPhotoView.m in Sources */,
+				2A12356B2CD86F5D000E3365 /* ZYVideoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,14 +525,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9TCKY7HFT5;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -551,14 +559,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9TCKY7HFT5;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -588,6 +596,7 @@
 				DEVELOPMENT_TEAM = 9TCKY7HFT5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ZYPhotoPicker Example/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSCameraUsageDescription = "是否允许使用您的相机，以便拍摄图片后上传照片？";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "是否允许访问您的相册，以便保存或上传图片？";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "是否允许访问您的照片，以便选择并上传图片？";
@@ -596,7 +605,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -620,6 +629,7 @@
 				DEVELOPMENT_TEAM = 9TCKY7HFT5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ZYPhotoPicker Example/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSCameraUsageDescription = "是否允许使用您的相机，以便拍摄图片后上传照片？";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "是否允许访问您的相册，以便保存或上传图片？";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "是否允许访问您的照片，以便选择并上传图片？";
@@ -628,7 +638,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,8 +1,8 @@
 //
-//  ZYPhotoView.h
+//  ZYVideoView.h
 //  ZYPhotoPicker
 //
-//  Created by 张宇 on 2023/4/13.
+//  Created by 张宇 on 2024/11/4.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,15 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /// formData表单类型
-typedef NS_ENUM(NSUInteger, ZYPhotoViewImageQualityType) {
-    ZYPhotoViewImageQualityType200 = 0, /// 200K
-    ZYPhotoViewImageQualityType400, /// 400K
-    ZYPhotoViewImageQualityType800, /// 800K
-    ZYPhotoViewImageQualityType1600, /// 1.6M
-    ZYPhotoViewImageQualityType0 /// 原图
+typedef NS_ENUM(NSUInteger, ZYPhotoViewVideoQualityType) {
+    ZYPhotoViewVideoQualityTypeO = 0, /// 原视频
 };
 
-@interface ZYPhotoView : UIScrollView
+@interface ZYVideoView : UIScrollView
 
 /// photoPickerView 会有一些默认配置，需要的话自行调整。
 @property (nonatomic, strong) HXPhotoView *photoView;
@@ -37,11 +33,12 @@ typedef NS_ENUM(NSUInteger, ZYPhotoViewImageQualityType) {
 /// photoView总的高度
 @property (nonatomic, assign) CGFloat photoViewAllHeight;
 
-/// 图片质量
-@property (nonatomic, assign) ZYPhotoViewImageQualityType imageQualityType;
+/// 视频的质量 默认原图
+@property (nonatomic, assign) ZYPhotoViewVideoQualityType imageQualityType;
 
-/// 已选择的图片.completion=yes才会有值
-@property (nonatomic, strong) void (^photosCompletionBlock) (NSMutableArray *photosArray, BOOL completion);
+/// 已选择的视频.completion=yes才会有值。返回视频地址：本地NSURL-string地址
+@property (nonatomic, strong) void (^videosCompletionBlock) (NSMutableArray *videosArray, BOOL completion);
+
 
 @end
 

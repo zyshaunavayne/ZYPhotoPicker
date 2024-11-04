@@ -9,6 +9,7 @@
 
 #import <HXPhotoPicker.h>
 #import "ZYPhotoView.h"
+#import "ZYVideoView.h"
 
 FOUNDATION_EXPORT double ZYPhotoPickerVersionNumber;
 
